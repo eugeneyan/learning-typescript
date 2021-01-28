@@ -81,3 +81,81 @@ var personEntries = Object.entries(person);
 console.log(personEntries);
 console.log(person.hasOwnProperty('firstName'));
 console.log(person.hasOwnProperty('middleName'));
+// Exercises Level 2
+var users = {
+    Alex: {
+        email: 'alex@alex.com',
+        skills: ['HTML', 'CSS', 'JavaScript'],
+        age: 20,
+        isLoggedIn: false,
+        points: 30
+    },
+    Asab: {
+        email: 'asab@asab.com',
+        skills: ['HTML', 'CSS', 'JavaScript', 'Redux', 'MongoDB', 'Express', 'React', 'Node'],
+        age: 25,
+        isLoggedIn: false,
+        points: 50
+    },
+    Brook: {
+        email: 'daniel@daniel.com',
+        skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Redux'],
+        age: 30,
+        isLoggedIn: true,
+        points: 50
+    },
+    Daniel: {
+        email: 'daniel@alex.com',
+        skills: ['HTML', 'CSS', 'JavaScript', 'Python'],
+        age: 20,
+        isLoggedIn: false,
+        points: 40
+    },
+    John: {
+        email: 'john@john.com',
+        skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Redux', 'Node.js'],
+        age: 20,
+        isLoggedIn: true,
+        points: 50
+    },
+    Thomas: {
+        email: 'thomas@thomas.com',
+        skills: ['HTML', 'CSS', 'JavaScript', 'React'],
+        age: 20,
+        isLoggedIn: false,
+        points: 40
+    },
+    Paul: {
+        email: 'paul@paul.com',
+        skills: ['HTML', 'CSS', 'JavaScript', 'MongoDB', 'Express', 'React', 'Node'],
+        age: 20,
+        isLoggedIn: false,
+        points: 40
+    }
+};
+var loggedIn = 0;
+var points50 = 0;
+for (var _i = 0, _a = Object.keys(users); _i < _a.length; _i++) {
+    var username = _a[_i];
+    var userLoggedIn = users[username].isLoggedIn;
+    var userPoints = users[username].points;
+    console.log(username + ": " + userLoggedIn + ", " + userPoints);
+    if (userLoggedIn) {
+        loggedIn += 1;
+    }
+    if (userPoints >= 50) {
+        points50 += 1;
+    }
+}
+console.log("Logged in users: " + loggedIn + ", Points >= 50: " + points50);
+var copyUsers = Object.assign({}, users);
+copyUsers['Eugene'] = {};
+copyUsers['Eugene']['email'] = 'eugene@eugeneyan.com';
+copyUsers['Eugene']['skills'] = ['SQL', 'Python', 'Scala', 'TypeScript'];
+copyUsers['Eugene']['age'] = 34;
+copyUsers['Eugene']['isLoggedIn'] = true;
+copyUsers['Eugene']['points'] = 30;
+console.log(copyUsers);
+console.log(Object.keys(users));
+console.log(Object.values(users));
+console.log(Object.entries(users));
