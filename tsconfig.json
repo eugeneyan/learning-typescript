@@ -6,6 +6,7 @@
             "esnext",
             "dom"
         ],
-        "downlevelIteration": true
+        "downlevelIteration": true,
+        "strict": true
     }
 }
