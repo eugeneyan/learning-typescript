@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document Object Model:30 Days Of JavaScript</title>
+</head>
+
+<body>
+
+    <script>
+        // creating multiple elements and appending to parent element
+        let title
+        for (let i = 0; i < 3; i++) {
+            title = document.createElement('h1')
+            title.className = 'title'
+            title.style.fontSize = '24px'
+            title.textContent = `title ${i}`
+            document.body.appendChild(title)  // We need to append to see the created element in HTML
+        }
+    </script>
+</body>
+</html>
