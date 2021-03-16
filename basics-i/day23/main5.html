@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document Object Model:30 Days Of JavaScript</title>
+</head>
+
+<body>
+    <h1>Data Binding using input or change event</h1>
+
+    <input type="text" placeholder="say something" />
+    <p></p>
+
+    <script>
+        const input = document.querySelector('input')
+        const p = document.querySelector('p')
+
+        input.addEventListener('input', e => {
+            p.textContent = e.target.value
+        })
+    </script>
+</body>
+
+</html>
