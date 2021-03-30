@@ -1,4 +1,4 @@
-const space = {
+var space = {
     earth: {
         gravity: 1.0,
         image: "earth.png"
@@ -38,32 +38,28 @@ const space = {
     venus: {
         gravity: 0.91,
         image: "venus.png"
-    },
-}
-
-const input = document.querySelector("input")
-const select = document.querySelector("select")
-const button = document.querySelector("button")
-const container = document.querySelector(".flex-container")
-let weight
-
-const containerUI = (img, text) => {
-    let image = document.createElement("img")
-    image.src = `images/${img}`
-    let p = document.createElement("p")
-    p.textContent = `${text} N`
-    p.className = "big"
-    container
-    container.appendChild(image)
-    container.appendChild(p)
-}
-
-button.addEventListener("click", function() {
-    let imgSrc;
-
-    console.log(`Select: ${select.value}, Input: ${input.value}`)
+    }
+};
+var input = document.querySelector("input");
+var select = document.querySelector("select");
+var button = document.querySelector("button");
+var container = document.querySelector(".flex-container");
+var weight;
+var containerUI = function (img, text) {
+    var image = document.createElement("img");
+    image.src = "images/" + img;
+    var p = document.createElement("p");
+    p.textContent = text + " N";
+    p.className = "big";
+    container;
+    container.appendChild(image);
+    container.appendChild(p);
+};
+button.addEventListener("click", function () {
+    var imgSrc;
+    console.log("Select: " + select.value + ", Input: " + input.value);
     imgSrc = space[select.value].image;
     weight = Number(input.value) * space[select.value].gravity;
     containerUI(imgSrc, weight);
-    console.log(weight)
-})
+    console.log(weight);
+});
