@@ -7,13 +7,15 @@ var __extends = (this && this.__extends) || (function () {
         return extendStatics(d, b);
     };
     return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
         extendStatics(d, b);
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-exports.__esModule = true;
-var message = 'Hello World!';
+Object.defineProperty(exports, "__esModule", { value: true });
+var message = 'Welcome back!';
 console.log(message);
 var x = 10;
 var y = 20;
@@ -22,7 +24,7 @@ var title = 'Codevolution';
 var isBeginner = true;
 var total = 0;
 var name = 'Eugene';
-var sentence = "My name is " + name + "\nI'm a beginner in Typescript";
+var sentence = "My name is ".concat(name, "\nI'm a beginner in Typescript");
 console.log(sentence);
 var n = null;
 var u = undefined;
@@ -43,18 +45,23 @@ console.log(c);
 var randomValue = 10;
 randomValue = 'Eugene';
 var myVariable = 10;
+// (myVariable as string).toUpperCase();  // This only casts the number as a string, but does not change the type of myVariable
+// Thus, it is still treated as a number and when we try to call toUpperCase() on it, we get an error.
+// Solve it by converting the number to a string first, then calling toUpperCase() on it.
+var aString = String(myVariable);
+console.log(aString.toUpperCase());
 function hasName(obj) {
     return !!obj &&
         typeof obj === 'object' &&
         'name' in obj;
 }
-// if (hasName(myVariable)) {}
-//     console.log(myVariable.name);
-// }
-// (myVariable as string).toUpperCase()
+if (hasName(myVariable)) {
+    console.log(myVariable.name);
+}
 var a;
 a = 10;
 var b = 20; // Type inference
+// b = true;  // Type error
 var multiType;
 multiType = 20;
 multiType = true;
@@ -65,13 +72,14 @@ function add(num1, num2) {
         return num1;
 }
 var z = add(10, 20);
+console.log("z = ".concat(z));
 var d = add(10);
+console.log("d = ".concat(d));
 function fullName(person) {
-    console.log(person.firstName + " " + person.lastName);
+    console.log("".concat(person.firstName, " ").concat(person.lastName));
 }
 var p = {
-    firstName: 'Bruce',
-    lastName: 'Wayne'
+    firstName: 'Bruce'
 };
 fullName(p);
 var Employee = /** @class */ (function () {
@@ -79,11 +87,11 @@ var Employee = /** @class */ (function () {
         this.employeeName = name;
     }
     Employee.prototype.greet = function () {
-        console.log("Good Morning " + this.employeeName);
+        console.log("Good Morning ".concat(this.employeeName));
     };
     return Employee;
 }());
-var e1 = new Employee('EugeneY');
+var e1 = new Employee('Eugene');
 console.log(e1.employeeName);
 e1.greet();
 var Manager = /** @class */ (function (_super) {
@@ -92,11 +100,11 @@ var Manager = /** @class */ (function (_super) {
         return _super.call(this, managerName) || this;
     }
     Manager.prototype.delegateWork = function () {
-        console.log("Manager " + this.employeeName + " delegating work");
+        console.log("Manager ".concat(this.employeeName, " delegating work"));
     };
     return Manager;
 }(Employee));
-var m1 = new Manager('XinyiY');
+var m1 = new Manager('Xinyi');
 m1.delegateWork();
 m1.greet();
 console.log(m1.employeeName);

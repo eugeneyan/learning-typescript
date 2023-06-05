@@ -1,43 +1,50 @@
 // Based on https://www.youtube.com/watch?v=WBPrJSw7yQA
 export { }
-let message = 'Hello World!'
-console.log(message)
+let message = 'Welcome back!';
+console.log(message);
 
-let x = 10
-const y = 20
+let x = 10;
+const y = 20;
 
-let sum
-const title = 'Codevolution'
+let sum;
+const title = 'Codevolution';
 
-let isBeginner: boolean = true
-let total: number = 0
-let name: string = 'Eugene'
+let isBeginner: boolean = true;
+let total: number = 0;
+let name: string = 'Eugene';
 
 let sentence: string = `My name is ${name}
-I'm a beginner in Typescript`
+I'm a beginner in Typescript`;
 
-console.log(sentence)
+console.log(sentence);
 
-let n: null = null
-let u: undefined = undefined
+let n: null = null;
+let u: undefined = undefined;
 
-let isNew: boolean = null
-let myName: string = undefined
+let isNew: boolean = null;
+let myName: string = undefined;
 
-let list1: number[] = [1, 2, 3]
-let list2: Array<number> = [1, 2, 3]
+let list1: number[] = [1, 2, 3];
+let list2: Array<number> = [1, 2, 3];
 
-let person1: [string, number] = ['Eugene', 34]
+let person1: [string, number] = ['Eugene', 34];
 
 enum Color { Red = 5, Green, Blue };
 
-let c: Color = Color.Green
-console.log(c)
+let c: Color = Color.Green;
+console.log(c);
 
-let randomValue: any = 10
-randomValue = 'Eugene'
+let randomValue: any = 10;
+randomValue = 'Eugene';
 
-let myVariable: unknown = 10
+let myVariable: unknown = 10;
+
+// (myVariable as string).toUpperCase();  // This only casts the number as a string, but does not change the type of myVariable
+// Thus, it is still treated as a number and when we try to call toUpperCase() on it, we get an error.
+
+// Solve it by converting the number to a string first, then calling toUpperCase() on it.
+let aString: string = String(myVariable);
+console.log(aString.toUpperCase());
 
 function hasName(obj: any): obj is { name: string } {
     return !!obj &&
@@ -45,76 +52,75 @@ function hasName(obj: any): obj is { name: string } {
         'name' in obj
 }
 
-// if (hasName(myVariable)) {}
-//     console.log(myVariable.name);
-// }
-
-// (myVariable as string).toUpperCase()
-
-let a
-a = 10
-
-
-let b = 20  // Type inference
-
-let multiType: number | boolean
-multiType = 20
-multiType = true
-
-function add(num1: number, num2?: number) {
-    if (num2)
-        return num1 + num2
-    else
-        return num1
+if (hasName(myVariable)) {
+    console.log(myVariable.name);
 }
 
-let z: number = add(10, 20)
-let d: number = add(10)
+let a;
+a = 10;
+
+let b = 20;  // Type inference
+// b = true;  // Type error
+
+let multiType: number | boolean;
+multiType = 20;
+multiType = true;
+
+function add(num1: number, num2?: number): number {
+    if (num2)
+        return num1 + num2;
+    else
+        return num1;
+}
+
+let z: number = add(10, 20);
+console.log(`z = ${z}`)
+let d: number = add(10);
+console.log(`d = ${d}`)
 
 interface Person {
-    firstName: string
-    lastName: string
+    firstName: string;
+    lastName?: string;  // Optional parameter
 }
 
 function fullName(person: Person) {
-    console.log(`${person.firstName} ${person.lastName}`)
+    console.log(`${person.firstName} ${person.lastName}`);
 }
 
 let p = {
-    firstName: 'Bruce',
-    lastName: 'Wayne'
+    firstName: 'Bruce'
 }
 
 fullName(p)
 
 class Employee {
-    public employeeName: string
+    public employeeName: string;
 
     constructor(name: string) {
-        this.employeeName = name
+        this.employeeName = name;
     }
 
     greet() {
-        console.log(`Good Morning ${this.employeeName}`)
+        console.log(`Good Morning ${this.employeeName}`);
     }
 }
 
-let e1 = new Employee('EugeneY')
-console.log(e1.employeeName)
-e1.greet()
+let e1 = new Employee('Eugene');
+console.log(e1.employeeName);
+e1.greet();
 
 class Manager extends Employee {
     constructor(managerName: string) {
-        super(managerName)
+        super(managerName);
     }
 
     delegateWork() {
-        console.log(`Manager ${this.employeeName} delegating work`)
+        console.log(`Manager ${this.employeeName} delegating work`);
     }
 }
 
-let m1 = new Manager('XinyiY')
-m1.delegateWork()
-m1.greet()
-console.log(m1.employeeName)
+let m1 = new Manager('Xinyi');
+m1.delegateWork();
+m1.greet();
+console.log(m1.employeeName);
 
